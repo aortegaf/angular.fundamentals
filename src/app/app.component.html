@@ -3,6 +3,83 @@
 
 <div>
   <h2>Data Communication</h2>
+  <ul>
+    <li>
+      <div>
+        <h3>String Interpolation</h3>
+        <p>{{text}}</p>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h3>Property Binding</h3>
+        <p>{{object.description}}</p>
+        <label>
+          My name is: <br>
+          <input type="text" [value]="object.name" />
+        </label>
+        <p>
+          I've been alive for (years): <br>
+          <progress max="50" [value]="object.age"></progress>
+        </p>
+        <p>
+          This is how I look like: <br>
+          <img width="100" height="100" [src]="object.img" />
+        </p>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h3>Event Binding</h3>
+        Manage Random Object age: (button "click" event)
+        <div>
+          <button (click)="increaseAge()">Increase ++</button>
+          <button (click)="decreaseAge()">Decrease --</button>
+        </div>
+        <p>---------------------------------------------------------------------------------------------------------------</p>
+        Toggle Button: (button "click" event)
+        <div>
+          <button (click)="toggleButton()">Test</button>
+          →
+          <button [disabled]="buttonDisabled">I am a Button</button>
+        </div>
+        <p>---------------------------------------------------------------------------------------------------------------</p>
+        Change Random Object name (input "keyup" event) <br>
+        <p>Name: {{object.name}}</p>
+        <label>
+          Edit name:
+          <input type="text" [value]="object.name" (keyup)="changeName($event)" />
+        </label>
+        <p>---------------------------------------------------------------------------------------------------------------</p>
+        Which is the following event? <br>
+        <button (click)="eventAlert($event)">Test</button>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h3>Data Binding (Angular Forms → ngModel)</h3>
+        <p>(required) Name: {{object.name}}
+          <br>
+          <label>
+            Edit name:
+            <input type="text" required #nameInput="ngModel" [(ngModel)]="object.name"/>
+          </label>
+          <br>
+          Valid?: {{nameInput.valid}}
+        </p>
+        <p>
+          Age:
+          <br>
+          <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age" />
+          <br>
+          Adult?: {{!ageInput.valid}}
+        </p>
+      </div>
+    </li>
+  </ul>
 </div>
 
 <div>
