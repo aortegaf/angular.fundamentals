@@ -84,6 +84,21 @@
 
 <div>
   <h2>Control Structures</h2>
+  <ul>
+    <li>
+      <div>
+        <h3>*ngIf</h3>
+        Age:
+        <br>
+        <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age" />
+        <br>
+        <p *ngIf="ageInput.valid; else elseBlock">I am not an adult</p>
+        <ng-template #elseBlock>
+          <p>I am an adult</p>
+        </ng-template>
+      </div>
+    </li>
+  </ul>
 </div>
 
 <div>
