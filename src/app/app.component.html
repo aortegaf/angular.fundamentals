@@ -87,7 +87,7 @@
   <ul>
     <li>
       <div>
-        <h3>*ngIf</h3>
+        <h3>ngIf</h3>
         Age:
         <br>
         <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age">
@@ -101,7 +101,7 @@
 
     <li>
       <div>
-        <h3>*ngFor</h3>
+        <h3>ngFor</h3>
         These are the Random Object colors:
         <p *ngIf="object.colors.length == 0">...</p>
         <ol>
@@ -112,6 +112,19 @@
         </ol>
         <br>
         <input type="text" [(ngModel)]="newColor"> <button (click)="addColor()">Add Color</button>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h3>ngSwitch</h3>
+        <div [ngSwitch]="object.colors.length">
+          <p *ngSwitchCase="0">Random Object doesn't have any color</p>
+          <p *ngSwitchCase="1">Random Object has one color</p>
+          <p *ngSwitchCase="2">Random Object has two colors</p>
+          <p *ngSwitchCase="3">Random Object has three colors</p>
+          <p *ngSwitchDefault>Random Object has a lot of colors</p>
+        </div>
       </div>
     </li>
   </ul>
