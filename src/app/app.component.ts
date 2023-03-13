@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Thing } from './thing.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,6 +19,33 @@ export class AppComponent {
     colors: ["yellow", "blue", "red"]
   }
   newColor = "";
+  things: Thing[] = [
+    {
+      name: "something one",
+      code: 1,
+      image: "https://source.unsplash.com/random"
+    },
+    {
+      name: "something two",
+      code: 2,
+      image: "https://source.unsplash.com/random"
+    },
+    {
+      name: "something three",
+      code: 3,
+      image: "https://source.unsplash.com/random"
+    },
+    {
+      name: "something four",
+      code: 4,
+      image: "https://source.unsplash.com/random"
+    },
+    {
+      name: "something five",
+      code: 5,
+      image: "https://source.unsplash.com/random"
+    },
+  ]
 
   increaseAge(){
     this.object.age +=1;
