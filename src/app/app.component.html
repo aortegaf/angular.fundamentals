@@ -1,5 +1,5 @@
 <h1>Angular Fundamentals</h1>
-<hr/>
+<hr>
 
 <div>
   <h2>Data Communication</h2>
@@ -17,15 +17,15 @@
         <p>{{object.description}}</p>
         <label>
           My name is: <br>
-          <input type="text" [value]="object.name" />
+          <input type="text" [value]="object.name">
         </label>
         <p>
           I've been alive for (years): <br>
           <progress max="50" [value]="object.age"></progress>
         </p>
         <p>
-          This is how I look like: <br>
-          <img width="100" height="100" [src]="object.img" />
+          This is what I look like: <br>
+          <img width="100" height="100" [src]="object.img">
         </p>
       </div>
     </li>
@@ -50,7 +50,7 @@
         <p>Name: {{object.name}}</p>
         <label>
           Edit name:
-          <input type="text" [value]="object.name" (keyup)="changeName($event)" />
+          <input type="text" [value]="object.name" (keyup)="changeName($event)">
         </label>
         <p>---------------------------------------------------------------------------------------------------------------</p>
         Which is the following event? <br>
@@ -65,7 +65,7 @@
           <br>
           <label>
             Edit name:
-            <input type="text" required #nameInput="ngModel" [(ngModel)]="object.name"/>
+            <input type="text" required #nameInput="ngModel" [(ngModel)]="object.name">
           </label>
           <br>
           Valid?: {{nameInput.valid}}
@@ -73,7 +73,7 @@
         <p>
           Age:
           <br>
-          <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age" />
+          <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age">
           <br>
           Adult?: {{!ageInput.valid}}
         </p>
@@ -90,12 +90,28 @@
         <h3>*ngIf</h3>
         Age:
         <br>
-        <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age" />
+        <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age">
         <br>
-        <p *ngIf="ageInput.valid; else elseBlock">I am not an adult</p>
+        <p *ngIf="ageInput.valid; else elseBlock">Random Object is not an adult</p>
         <ng-template #elseBlock>
-          <p>I am an adult</p>
+          <p>Random Object is an adult</p>
         </ng-template>
+      </div>
+    </li>
+
+    <li>
+      <div>
+        <h3>*ngFor</h3>
+        These are the Random Object colors:
+        <p *ngIf="object.colors.length == 0">...</p>
+        <ol>
+          <li *ngFor="let color of object.colors; index as i">
+            {{ color }}
+            <button (click)="removeColor(i)">Remove</button>
+          </li>
+        </ol>
+        <br>
+        <input type="text" [(ngModel)]="newColor"> <button (click)="addColor()">Add Color</button>
       </div>
     </li>
   </ul>

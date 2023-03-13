@@ -13,8 +13,10 @@ export class AppComponent {
     description: "I am a random object from the AppComponent",
     name: "Random Object",
     age: 10,
-    img: "https://source.unsplash.com/random"
+    img: "https://source.unsplash.com/random",
+    colors: ["yellow", "blue", "red"]
   }
+  newColor = "";
 
   increaseAge(){
     this.object.age +=1;
@@ -35,5 +37,14 @@ export class AppComponent {
 
   eventAlert(event: Event){
     alert("You just made a '" + event.type + "'");
+  }
+
+  addColor(){
+    this.object.colors.push(this.newColor);
+    this.newColor = "";
+  }
+
+  removeColor(index: number){
+    this.object.colors.splice(index, 1);
   }
 }
