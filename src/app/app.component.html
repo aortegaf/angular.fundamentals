@@ -1,5 +1,5 @@
 <h1>Angular Fundamentals</h1>
-<hr>
+<hr />
 
 <div>
   <h2>Data Communication</h2>
@@ -7,25 +7,25 @@
     <li>
       <div>
         <h3>String Interpolation</h3>
-        <p>{{text}}</p>
+        <p>{{ text }}</p>
       </div>
     </li>
 
     <li>
       <div>
         <h3>Property Binding</h3>
-        <p>{{object.description}}</p>
+        <p>{{ object.description }}</p>
         <label>
-          My name is: <br>
-          <input type="text" [value]="object.name">
+          My name is: <br />
+          <input type="text" [value]="object.name" />
         </label>
         <p>
-          I've been alive for (years): <br>
+          I've been alive for (years): <br />
           <progress max="50" [value]="object.age"></progress>
         </p>
         <p>
-          This is what I look like: <br>
-          <img width="100" height="100" [src]="object.img">
+          This is what I look like: <br />
+          <img width="100" height="100" [src]="object.img" />
         </p>
       </div>
     </li>
@@ -38,22 +38,32 @@
           <button (click)="increaseAge()">Increase ++</button>
           <button (click)="decreaseAge()">Decrease --</button>
         </div>
-        <p>---------------------------------------------------------------------------------------------------------------</p>
+        <p>
+          ---------------------------------------------------------------------------------------------------------------
+        </p>
         Toggle Button: (button "click" event)
         <div>
           <button (click)="toggleButton()">Test</button>
           →
           <button [disabled]="buttonDisabled">I am a Button</button>
         </div>
-        <p>---------------------------------------------------------------------------------------------------------------</p>
-        Change Random Object name (input "keyup" event) <br>
-        <p>Name: {{object.name}}</p>
+        <p>
+          ---------------------------------------------------------------------------------------------------------------
+        </p>
+        Change Random Object name (input "keyup" event) <br />
+        <p>Name: {{ object.name }}</p>
         <label>
           Edit name:
-          <input type="text" [value]="object.name" (keyup)="changeName($event)">
+          <input
+            type="text"
+            [value]="object.name"
+            (keyup)="changeName($event)"
+          />
         </label>
-        <p>---------------------------------------------------------------------------------------------------------------</p>
-        Which is the following event? <br>
+        <p>
+          ---------------------------------------------------------------------------------------------------------------
+        </p>
+        Which is the following event? <br />
         <button (click)="eventAlert($event)">Test</button>
       </div>
     </li>
@@ -61,21 +71,32 @@
     <li>
       <div>
         <h3>Data Binding (Angular Forms → ngModel)</h3>
-        <p>(required) Name: {{object.name}}
-          <br>
+        <p>
+          (required) Name: {{ object.name }}
+          <br />
           <label>
             Edit name:
-            <input type="text" required #nameInput="ngModel" [(ngModel)]="object.name">
+            <input
+              type="text"
+              required
+              #nameInput="ngModel"
+              [(ngModel)]="object.name"
+            />
           </label>
-          <br>
-          Valid?: {{nameInput.valid}}
+          <br />
+          Valid?: {{ nameInput.valid }}
         </p>
         <p>
           Age:
-          <br>
-          <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age">
-          <br>
-          Adult?: {{!ageInput.valid}}
+          <br />
+          <input
+            type="number"
+            max="17"
+            #ageInput="ngModel"
+            [(ngModel)]="object.age"
+          />
+          <br />
+          Adult?: {{ !ageInput.valid }}
         </p>
       </div>
     </li>
@@ -89,10 +110,17 @@
       <div>
         <h3>ngIf</h3>
         Age:
-        <br>
-        <input type="number" max="17" #ageInput="ngModel" [(ngModel)]="object.age">
-        <br>
-        <p *ngIf="ageInput.valid; else elseBlock">Random Object is not an adult</p>
+        <br />
+        <input
+          type="number"
+          max="17"
+          #ageInput="ngModel"
+          [(ngModel)]="object.age"
+        />
+        <br />
+        <p *ngIf="ageInput.valid; else elseBlock">
+          Random Object is not an adult
+        </p>
         <ng-template #elseBlock>
           <p>Random Object is an adult</p>
         </ng-template>
@@ -110,21 +138,9 @@
             <button (click)="removeColor(i)">Remove</button>
           </li>
         </ol>
-        <br>
-        <input type="text" [(ngModel)]="newColor"> <button (click)="addColor()">Add Color</button>
-      </div>
-    </li>
-
-    <li>
-      <div>
-        <h3>ngFor Objects</h3>
-        These are the Random Object things:
-        <br><br>
-        <div *ngFor="let thing of things">
-          <img width="100" height="100" [src]="thing.image">
-          <h4>{{thing.name}}</h4>
-          <p>code: {{thing.code}}</p>
-        </div>
+        <br />
+        <input type="text" [(ngModel)]="newColor" />
+        <button (click)="addColor()">Add Color</button>
       </div>
     </li>
 
@@ -145,4 +161,14 @@
 
 <div>
   <h2>Styles</h2>
+  <div>
+    <h3>ngFor Objects</h3>
+    These are the Random Object things:
+    <br /><br />
+    <div *ngFor="let thing of things">
+      <img width="100" height="100" [src]="thing.image" />
+      <h4>{{ thing.name }}</h4>
+      <p>code: {{ thing.code }}</p>
+    </div>
+  </div>
 </div>
