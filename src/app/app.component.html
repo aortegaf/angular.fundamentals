@@ -161,14 +161,20 @@
 
 <div>
   <h2>Styles</h2>
-  <div>
-    <h3>ngFor Objects</h3>
-    These are the Random Object things:
-    <br /><br />
-    <div *ngFor="let thing of things">
-      <img width="100" height="100" [src]="thing.image" />
-      <h4>{{ thing.name }}</h4>
-      <p>code: {{ thing.code }}</p>
-    </div>
-  </div>
+  <ul>
+    <li>
+      <div>
+        <h3>Grid</h3>
+        These are the Random Object things:
+        <br /><br />
+        <div class="things--grid">
+          <div *ngFor="let thing of things">
+            <img width="100" height="100" [src]="thing.image" />
+            <h4>{{ thing.name }}</h4>
+            <p>code: {{ thing.code }}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>

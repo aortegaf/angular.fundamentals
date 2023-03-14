@@ -1,3 +1,32 @@
 h1 {
   text-align: center;
 }
+
+.things--grid {
+  display: flex;
+  flex-direction: column;
+  div {
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    h4,
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .things--grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+  }
+}
+
+@media screen and (min-width: 62em) {
+  .things--grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
